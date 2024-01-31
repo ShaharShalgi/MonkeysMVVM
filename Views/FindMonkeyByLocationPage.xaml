@@ -1,22 +1,29 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:viewmodel="clr-namespace:MonkeysMVVM.ViewModels"
-             x:DataType="viewmodel:FindMonkeyByLocationPageViewModel"
-             x:Class="MonkeysMVVM.Views.FindMonkeyByLocationPage"
-             Title="FindMonkeyByLocationPage">
+<ContentPage
+    x:Class="MonkeysMVVM.Views.FindMonkeyByLocationPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:viewmodel="clr-namespace:MonkeysMVVM.ViewModels"
+    Title="FindMonkeyByLocationPage"
+    x:DataType="viewmodel:FindMonkeyByLocationPageViewModel">
     <VerticalStackLayout>
-        <Entry Placeholder="הכנס שם מדינה" PlaceholderColor="Violet" Text="{Binding Country}"/>
-        <Button Text="חפש" WidthRequest="150" Command="{Binding SearchByCountryCommand}"/>
-        <Label>
+        <Entry
+            Placeholder="הכנס שם מדינה"
+            PlaceholderColor="Violet"
+            Text="{Binding Country}" />
+        <Button
+            Command="{Binding SearchByCountryCommand}"
+            Text="חפש"
+            WidthRequest="150" />
+        <Label HorizontalOptions="Center">
             <Label.FormattedText>
                 <FormattedString>
-                    <Span Text="מספר הקופים שנמצאו" FontAttributes="Bold"/>
-                    <Span Text="{Binding Count}"/>
+                    <Span FontAttributes="Bold" Text="מספר הקופים שנמצאו: " />
+                    <Span Text="{Binding Count}" />
                 </FormattedString>
             </Label.FormattedText>
         </Label>
-        <Label Text="{Binding Name}"/>
-        <Image Source="{Binding ImageUrl}"/>
+        <Label HorizontalOptions="Center" Text="{Binding Name}" />
+        <Image Source="{Binding ImageUrl}" />
     </VerticalStackLayout>
 </ContentPage>
